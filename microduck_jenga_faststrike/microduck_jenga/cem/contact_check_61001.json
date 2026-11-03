@@ -1,0 +1,34 @@
+{
+  "seed": 61001,
+  "checked_substeps": 201,
+  "gpu_contacts": 8,
+  "cpu_contacts": 8,
+  "mismatches": [],
+  "max_mouth_position_error_m": 6.420474717406894e-08,
+  "window_s": [
+    1.2,
+    1.7
+  ],
+  "caveat": "CPU MuJoCo versus Warp at matching simulated qpos, one episode; not hardware truth.",
+  "episode": {
+    "success": 0.0,
+    "robot_fall": 0.0,
+    "base_failure": 0.0,
+    "wrong_contact": 0.0,
+    "head_contact": 1.0,
+    "top_fallen": 1.0,
+    "fast_strike": 0.0,
+    "base_max_xy_m": 0.004863800946623087,
+    "base_max_tilt_rad": 0.049419235438108444,
+    "max_head_force_n": 0.2893887758255005,
+    "strike_head_speed_m_s": 0.24353012442588806,
+    "strike_contact_duration_s": 0.019999997690320015,
+    "strike_separation_delay_s": 0.21250486373901367,
+    "strike_peak_head_forward_m_s": 0.38175007700920105,
+    "strike_first_contact_s": 1.4275089502334595,
+    "strike_head_total_speed_m_s": 0.24358497560024261,
+    "duration_s": 6.0,
+    "minimum_mouth_target_distance_m": 0.03485562279820442,
+    "max_top_forward_m": 0.06900189071893692
+  }
+}
