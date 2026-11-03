@@ -31,6 +31,8 @@ def main():
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--tower-offset', type=float, default=0.20,
                         help='Experimental reset distance in metres (default: original 0.20)')
+    parser.add_argument('--approach-weight', type=float, default=2.0,
+                        help='Experimental approach reward weight (default: original 2.0)')
     parser.add_argument('--task', default='Mjlab-JengaHead-Vertical3-MicroDuck',
                         choices=['Mjlab-JengaHead-Vertical3-MicroDuck',
                                  'Mjlab-JengaHead-Vertical2-MicroDuck',
@@ -43,6 +45,8 @@ def main():
         parser.error('Use 1-128 environments and an explicit 1-86400 second bound')
     if not 0.14 <= args.tower_offset <= 0.20:
         parser.error('Experimental tower offset must be between 0.14 and 0.20 metres')
+    if not 0.0 < args.approach_weight <= 20.0:
+        parser.error('Approach weight must be greater than zero and at most 20')
     if args.phase == 'smoke' and (envs not in range(32, 65) or iterations != 5):
         parser.error('Smoke requires 32-64 environments and exactly five iterations')
     checkpoint = (args.checkpoint or ROOT/'pretrained/velstand_model_2749.pt').resolve()
@@ -68,6 +72,8 @@ def main():
                '--enable-nan-guard', 'True', '--init-checkpoint', str(checkpoint)]
     if args.tower_offset != 0.20:
         command += ['--env.events.reset-jenga.params.offset-x', str(args.tower_offset)]
+    if args.approach_weight != 2.0:
+        command += ['--env.rewards.jenga-approach.weight', str(args.approach_weight)]
     child_env = os.environ.copy()
     child_env.update(PYTHONPATH=str(ROOT/'src'), OMP_NUM_THREADS='2',
                      MKL_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', WANDB_MODE='disabled',
@@ -81,6 +87,7 @@ def main():
                 run_name=run_name, python=sys.version, cuda=torch.version.cuda,
                 gpu=props.name, capability=list(torch.cuda.get_device_capability()),
                 gpu_total_bytes=props.total_memory, resume=args.resume, tower_offset_m=args.tower_offset,
+                approach_weight=args.approach_weight,
                 lock_sha256=hashlib.sha256((ROOT/'uv.lock').read_bytes()).hexdigest(),
                 checkpoint_sha256=hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
                 versions={p:metadata.version(p) for p in

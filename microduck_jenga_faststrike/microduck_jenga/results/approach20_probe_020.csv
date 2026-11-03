@@ -1,0 +1,4 @@
+seed,duration_s,success,robot_fall,base_failure,wrong_contact,head_contact,top_fallen,fast_strike,base_max_xy_m,base_max_tilt_rad,max_head_force_n,strike_head_speed_m_s,strike_contact_duration_s,strike_separation_delay_s,terminated,timeout,checkpoint_iteration
+9100,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0002404260158073157,0.0021836606319993734,0.0,0.0,0.0,-1.0,False,True,107
+9101,1.4,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.00933659728616476,0.08682673424482346,0.15478359162807465,0.031531501561403275,0.019999999552965164,-1.0,True,False,107
+9102,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.00015189799887593836,0.0018911053193733096,0.0,0.0,0.0,-1.0,False,True,107
