@@ -42,4 +42,21 @@ The local launcher exposes `--approach-weight` for a controlled exploration abla
 
 The 64-environment, 100-iteration ablation completed in 594 seconds with mean logged throughput 295 environment steps/s, sampled peak VRAM 441 MiB and sampled peak temperature 60 °C. The resulting checkpoint 107 has finite checked tensors and changed actor MLP weights; its SHA-256 is `699203bd7f6389132c524153f900fc3939440b8776f2453dd5d3b3d051201a43`. On the same diagnostic seeds 9100–9102, it scored 0/3 at both 14 cm and the original 20 cm. At each distance seed 9101 had sampled head contact and lower-block base failure (maximum displacement approximately 9.3 mm); the other two had no sampled head contact or success. No robot falls or wrong-contact flags were recorded. At 20 cm the recorded first-contact forward speed for the failed case was 0.032 m/s, below the 0.25 m/s criterion; the PPO measurements are 50 Hz samples and can miss short impacts. These reused diagnostic seeds are not a held-out performance estimate. More approach reward has not established a successful policy or safe transfer.
 
+### Further bounded continuation, 2026-11-03
+
+A further 300 PPO updates resumed the approach-weight-20 checkpoint 107 at the same 14 cm placement, with the same physics, rewards, actor inputs and success thresholds. The environment count increased from 64 to 128, doubling the per-update rollout from 1,536 to 3,072 environment steps. This continuation therefore changes both training duration and rollout batch size; it is not an isolated test of duration alone. It added 921,600 environment steps and completed normally in 1560.787 seconds. Mean logged throughput was 646.0 environment steps/s; sampled GPU memory peaked at 655 MiB and temperature at 60 C.
+
+The last saved checkpoint is iteration 406, SHA-256 `666d14749feb5290df750b48b86d58cf6f7924b6588b06e30b64937bb0b133c7`. Its checked tensors contain no NaN or infinity, and actor-network weights changed relative to checkpoint 107. Checkpoints remain local. The following are complete deterministic-policy diagnostics of this last checkpoint, not a ranking of every saved checkpoint:
+
+| Placement | Reset seeds | Successes | Head contacts | Base failures | Robot falls | Wrong contacts |
+|---|---|---:|---:|---:|---:|---:|
+| 0.14 m | 9100–9102 | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
+| 0.14 m | 9200–9202 | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
+| 0.20 m | 9100–9102 | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
+| 0.20 m | 9200–9202 | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
+
+The original three reset seeds were reused for comparison; 9200–9202 are additional diagnostic resets. Both conditions retained a fixed startup randomization seed of 41. None of these six reset seeds is final held-out validation. Contact metrics are sampled at 50 Hz and can miss brief impacts. The 20 cm condition is a separate transfer check from the 14 cm training distribution.
+
+This continuation has not established a successful three-block PPO policy. No successful-policy ONNX export or physical robot validation is claimed.
+
 Keep full logs and checkpoints locally. Selection evaluations and held-out evaluations must use separate seeds. A successful release requires reproducible task success, complete failure reporting, verified licensing, and honest simulation-only documentation.

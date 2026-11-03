@@ -1,0 +1,177 @@
+{
+  "status": "verified",
+  "task": "Mjlab-JengaHead-Vertical3-MicroDuck",
+  "training_offset_m": 0.14,
+  "approach_weight": 20.0,
+  "environments": 128,
+  "updates": 300,
+  "added_environment_steps": 921600,
+  "first_iteration": 107,
+  "last_iteration": 406,
+  "checkpoint_sha256": "666d14749feb5290df750b48b86d58cf6f7924b6588b06e30b64937bb0b133c7",
+  "checkpoint_bytes": 5071267,
+  "elapsed_s": 1560.787,
+  "mean_logged_environment_steps_s": 646.04,
+  "peak_sampled_vram_mib": 655.0,
+  "peak_sampled_temperature_c": 60.0,
+  "nonfinite_tensors": 0,
+  "changed_actor_tensors": [
+    "obs_normalizer._mean",
+    "obs_normalizer._var",
+    "obs_normalizer._std",
+    "obs_normalizer.count",
+    "distribution.std_param",
+    "mlp.0.weight",
+    "mlp.0.bias",
+    "mlp.2.weight",
+    "mlp.2.bias",
+    "mlp.4.weight",
+    "mlp.4.bias",
+    "mlp.6.weight",
+    "mlp.6.bias"
+  ],
+  "conditions": [
+    {
+      "tower_offset_m": 0.14,
+      "groups": [
+        {
+          "group": "reused_diagnostics",
+          "seeds": [
+            9100,
+            9101,
+            9102
+          ],
+          "episodes": 3,
+          "counts": {
+            "success": 0,
+            "fast_strike": 0,
+            "head_contact": 0,
+            "top_fallen": 0,
+            "robot_fall": 0,
+            "base_failure": 0,
+            "wrong_contact": 0
+          },
+          "max_base_displacement_m": 0.0002184817276429385
+        },
+        {
+          "group": "additional_diagnostics",
+          "seeds": [
+            9200,
+            9201,
+            9202
+          ],
+          "episodes": 3,
+          "counts": {
+            "success": 0,
+            "fast_strike": 0,
+            "head_contact": 0,
+            "top_fallen": 0,
+            "robot_fall": 0,
+            "base_failure": 0,
+            "wrong_contact": 0
+          },
+          "max_base_displacement_m": 0.00019280097330920398
+        }
+      ],
+      "summary": {
+        "episodes": 6,
+        "complete": true,
+        "successes": 0,
+        "success_rate": 0.0,
+        "success_95ci": [
+          0.0,
+          0.3903430336530645
+        ],
+        "failure_rate": 0.0,
+        "successful_mean_separation_delay_s": null,
+        "mean_success": 0.0,
+        "mean_robot_fall": 0.0,
+        "mean_base_failure": 0.0,
+        "mean_wrong_contact": 0.0,
+        "mean_head_contact": 0.0,
+        "mean_top_fallen": 0.0,
+        "mean_fast_strike": 0.0,
+        "mean_base_max_xy_m": 0.0001535792883563166,
+        "mean_base_max_tilt_rad": 0.001622235383062313,
+        "mean_max_head_force_n": 0.0,
+        "mean_strike_head_speed_m_s": 0.0,
+        "mean_strike_contact_duration_s": 0.0,
+        "mean_strike_separation_delay_s": -1.0
+      }
+    },
+    {
+      "tower_offset_m": 0.2,
+      "groups": [
+        {
+          "group": "reused_diagnostics",
+          "seeds": [
+            9100,
+            9101,
+            9102
+          ],
+          "episodes": 3,
+          "counts": {
+            "success": 0,
+            "fast_strike": 0,
+            "head_contact": 0,
+            "top_fallen": 0,
+            "robot_fall": 0,
+            "base_failure": 0,
+            "wrong_contact": 0
+          },
+          "max_base_displacement_m": 0.00022341943986248225
+        },
+        {
+          "group": "additional_diagnostics",
+          "seeds": [
+            9200,
+            9201,
+            9202
+          ],
+          "episodes": 3,
+          "counts": {
+            "success": 0,
+            "fast_strike": 0,
+            "head_contact": 0,
+            "top_fallen": 0,
+            "robot_fall": 0,
+            "base_failure": 0,
+            "wrong_contact": 0
+          },
+          "max_base_displacement_m": 0.0001967913267435506
+        }
+      ],
+      "summary": {
+        "episodes": 6,
+        "complete": true,
+        "successes": 0,
+        "success_rate": 0.0,
+        "success_95ci": [
+          0.0,
+          0.3903430336530645
+        ],
+        "failure_rate": 0.0,
+        "successful_mean_separation_delay_s": null,
+        "mean_success": 0.0,
+        "mean_robot_fall": 0.0,
+        "mean_base_failure": 0.0,
+        "mean_wrong_contact": 0.0,
+        "mean_head_contact": 0.0,
+        "mean_top_fallen": 0.0,
+        "mean_fast_strike": 0.0,
+        "mean_base_max_xy_m": 8.68482075020438e-05,
+        "mean_base_max_tilt_rad": 0.0009142262570094317,
+        "mean_max_head_force_n": 0.0,
+        "mean_strike_head_speed_m_s": 0.0,
+        "mean_strike_contact_duration_s": 0.0,
+        "mean_strike_separation_delay_s": -1.0
+      }
+    }
+  ],
+  "limitations": [
+    "Diagnostic comparisons, not a final held-out performance estimate.",
+    "Fixed startup randomization seed 41; reset seeds vary.",
+    "Contacts sampled at 50 Hz can miss brief impacts.",
+    "Training distribution at 14 cm differs from original 20 cm placement."
+  ]
+}
