@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, height=400">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    html, body { width: 1280px; height: 400px; overflow: hidden; }
+    #root { position: relative; width: 1280px; height: 400px; background: #101d2d; color: #f6f8fc; font-family: Inter, sans-serif; }
+    .accent { position: absolute; left: 0; top: 0; width: 8px; height: 400px; background: #ff921f; }
+    .copy { position: absolute; left: 56px; top: 38px; width: 610px; }
+    .eyebrow { color: #bacddd; font-size: 16px; font-weight: 700; letter-spacing: 3px; }
+    h1 { margin-top: 20px; font-size: 82px; line-height: 1.03; font-weight: 900; letter-spacing: -4px; }
+    h1 span { color: #ff9a32; }
+    .tagline { margin-top: 22px; font-size: 25px; line-height: 1.4; color: #dde7ef; }
+    .scope { margin-top: 26px; font-size: 16px; font-weight: 700; color: #bacddd; letter-spacing: 1.2px; }
+    .photo { position: absolute; left: 730px; top: 24px; width: 510px; height: 352px; border-radius: 12px; overflow: hidden; }
+    .photo img { width: 510px; height: 352px; object-fit: cover; object-position: center 57%; }
+    .label { position: absolute; right: 16px; top: 16px; padding: 9px 12px; background: #101d2d; color: #f6f8fc; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="readme-banner" data-start="0" data-duration="3" data-width="1280" data-height="400" data-no-timeline>
+    <div class="accent" data-layout-ignore></div>
+    <div class="copy">
+      <p class="eyebrow">MUJOCO / CONTROLLER EXPERIMENT</p>
+      <h1>MicroDuck<br><span>Jenga</span></h1>
+      <p class="tagline">Balance. Strike. Stay upright.</p>
+      <p class="scope">SIMULATION ONLY &nbsp; / &nbsp; TWO-BLOCK CEM</p>
+    </div>
+    <div class="photo">
+      <img id="footage" src="assets/strike.png" alt="MicroDuck beside the lower block as the upper orange block falls, from the real simulation recording">
+      <p class="label">SEED 61000 / FRAME 090</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "sources": {
+    "cem_2block_seed_61000.mp4": {
+      "sha256": "16664f417208918a04ea867559d25cbf8af8226f18aa8842cb5c79b09f8d16e5",
+      "width": 960,
+      "height": 720,
+      "frames": 301,
+      "frame_rate": "50/1",
+      "duration_s": 6.02
+    },
+    "cem_2block_seed_61001_failure.mp4": {
+      "sha256": "8c53be21912bf1506d733b25837871fda197046417bcc575d2f9994bb58541ea",
+      "width": 960,
+      "height": 720,
+      "frames": 301,
+      "frame_rate": "50/1",
+      "duration_s": 6.02
+    }
+  },
+  "settings": {
+    "filter_complex": "fps=25,crop=500:500:260:130,split[a][b];[a]palettegen=max_colors=128:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle",
+    "loop": 0,
+    "gifflags": "+transdiff",
+    "audio": false,
+    "source_range": "full clip; no time scaling",
+    "source_crop_xywh": [
+      260,
+      130,
+      500,
+      500
+    ],
+    "banner_source_frame": 90,
+    "banner_crop_xywh": [
+      190,
+      140,
+      600,
+      420
+    ],
+    "banner_hyperframes": "hyperframes@0.9.17"
+  },
+  "tools": {
+    "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers",
+    "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers"
+  },
+  "outputs": {
+    "cem_2block_seed_61000.gif": {
+      "sha256": "7b02661e19f0e7a29c300020467a186dbe808a91dfce10247eeb6840f57b14a3",
+      "bytes": 1249292,
+      "width": 500,
+      "height": 500,
+      "frames": 151,
+      "frame_rate": "25/1",
+      "duration_s": 6.04
+    },
+    "cem_2block_seed_61001_failure.gif": {
+      "sha256": "39f022aa78d248373ec52bc1e1b3f79868f9024cbb2547d9e2d2ec59340f4ce1",
+      "bytes": 1272235,
+      "width": 500,
+      "height": 500,
+      "frames": 151,
+      "frame_rate": "25/1",
+      "duration_s": 6.04
+    },
+    "readme-banner.png": {
+      "sha256": "fe1ba908b6a6e075d2f6af05a8e1d03e19b8dea2b21553740c7d70bd5edf137c",
+      "bytes": 135475,
+      "width": 1280,
+      "height": 400,
+      "frames": 1
+    }
+  }
+}

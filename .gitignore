@@ -19,6 +19,7 @@
 *.mjb
 *.npz
 *.png
+!media/readme-banner.png
 **/logs/
 **/wandb/
 **/build_context/
