@@ -1,0 +1,93 @@
+{
+  "sources": {
+    "tower_gapped_stack.mp4": {
+      "sha256": "a0fe57166dfa4ff04b67e914cd6f0dc2cd2d41f8dc03a73ed29fdf86a9b054ea",
+      "width": 960,
+      "height": 544,
+      "frames": 500,
+      "frame_rate": "25/1",
+      "duration_s": 20.0
+    },
+    "tower_open_portal.mp4": {
+      "sha256": "818f086186e2d3279fb5327425a410b914bbef7573744b4bff992f37a28b3cda",
+      "width": 960,
+      "height": 544,
+      "frames": 500,
+      "frame_rate": "25/1",
+      "duration_s": 20.0
+    },
+    "tower_36cm_scaled.mp4": {
+      "sha256": "35a06214df789dc287c2c5fef6a834ebe01ef0410b4281d551a0750e9faa37c3",
+      "width": 1280,
+      "height": 720,
+      "frames": 700,
+      "frame_rate": "25/1",
+      "duration_s": 28.0
+    }
+  },
+  "outputs": {
+    "tower_gapped_stack.gif": {
+      "sha256": "d9dd5690e374ba35ef64951041b55db8955e70f31f36adaa4f2ab27ac64061ae",
+      "bytes": 1169450,
+      "excerpt_source_seconds": [
+        2,
+        12
+      ],
+      "settings": {
+        "filter_complex": "trim=start=2:end=12,setpts=PTS-STARTPTS,fps=15,crop=800:400:20:80,scale=640:320:flags=lanczos,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle",
+        "loop": 0,
+        "gifflags": "+transdiff",
+        "audio": false
+      },
+      "width": 640,
+      "height": 320,
+      "frames": 150,
+      "frame_rate": "15/1",
+      "duration_s": 10.0
+    },
+    "tower_open_portal.gif": {
+      "sha256": "10663a54a158ca28b1ee537f3b07790d4eaa1bf7372d2d76a556265834676f46",
+      "bytes": 1138339,
+      "excerpt_source_seconds": [
+        2,
+        12
+      ],
+      "settings": {
+        "filter_complex": "trim=start=2:end=12,setpts=PTS-STARTPTS,fps=15,crop=800:400:20:80,scale=640:320:flags=lanczos,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle",
+        "loop": 0,
+        "gifflags": "+transdiff",
+        "audio": false
+      },
+      "width": 640,
+      "height": 320,
+      "frames": 150,
+      "frame_rate": "15/1",
+      "duration_s": 10.0
+    },
+    "tower_36cm_scaled.gif": {
+      "sha256": "b1cd8c913e9d64bcfffc7919ea875976939cf51e3582859fc2543cff6fa1f727",
+      "bytes": 202766,
+      "excerpt_source_seconds": [
+        10,
+        22
+      ],
+      "settings": {
+        "filter_complex": "trim=start=10:end=22,setpts=PTS-STARTPTS,fps=15,crop=600:440:180:160,scale=600:440:flags=lanczos,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle",
+        "loop": 0,
+        "gifflags": "+transdiff",
+        "audio": false
+      },
+      "width": 600,
+      "height": 440,
+      "frames": 180,
+      "frame_rate": "15/1",
+      "duration_s": 12.0
+    }
+  },
+  "evidence_sha256": "78cb6623ca3eb3a816ce4638c4a6c5f66199f7f249a486e8ddf47cb936f1850a",
+  "tools": {
+    "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers",
+    "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers"
+  },
+  "time_scaling": "none; contiguous excerpts at recorded speed"
+}

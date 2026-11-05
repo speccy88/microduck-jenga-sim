@@ -1,0 +1,156 @@
+{
+  "scope": "Historical simulation development trials for whole-tower collapse; separate from two-block CEM and three-block selective PPO. Not held-out performance estimates.",
+  "task_id": "Microduck-TowerAttack-Sensors-v1",
+  "control": "Scripted camera/ToF approach and push over frozen learned locomotion, with lightweight learned semantic perception. No newly trained attack policy.",
+  "source_replay": "Overview rendered from saved GPU qpos/qvel; no dynamics integrated during video export or GIF conversion.",
+  "blocks_dimensions_m": [
+    0.075,
+    0.025,
+    0.015
+  ],
+  "geometry_seed": 101,
+  "reset_seed": 9601,
+  "records": [
+    {
+      "original_relative_path": "controlled_approach_v3/report.json",
+      "sha256": "0ade10e903eddbb57d4a9018b479ca86bdcdbaf705d249291c653eaa4d75c323",
+      "note": "Original retained locally; selected evidence fields are reproduced here without local filesystem prefixes."
+    },
+    {
+      "original_relative_path": "tall_scaled_primitive_v1/report.json",
+      "sha256": "e4e9a9b2c046ddd1e9428670a4593889531774d2ca47127fb51e56c50810fed8",
+      "note": "Original retained locally; selected evidence fields are reproduced here without local filesystem prefixes."
+    },
+    {
+      "original_relative_path": "attack_scale_audit_v1/report.json",
+      "sha256": "d1261a58a3164074c04a2ab6ee7e9e43314a3445932b041f49d34982eed4d7b0",
+      "note": "Original retained locally; selected evidence fields are reproduced here without local filesystem prefixes."
+    },
+    {
+      "original_relative_path": "scaled_tall_profile_audit_v2/report.json",
+      "sha256": "cc89710f68899e77d4b497364d23044bde036199b671b818479de08efee93b58",
+      "note": "Original retained locally; selected evidence fields are reproduced here without local filesystem prefixes."
+    },
+    {
+      "original_relative_path": "attack_video_evidence_v3/report.json",
+      "sha256": "c61e1323ace43956d4200153b7f1d54173c449750752e0e0e6c9aad395673eea",
+      "note": "Original retained locally; selected evidence fields are reproduced here without local filesystem prefixes."
+    },
+    {
+      "original_relative_path": "attack_video_delivery_v3/manifest.json",
+      "sha256": "327b8b34bc5d0c1ff944ff063c51552c7fbed6db69c1cd8e3799617a02aadcae",
+      "note": "Original retained locally; selected evidence fields are reproduced here without local filesystem prefixes."
+    },
+    {
+      "original_relative_path": "tall_attack_video_v2/manifest.json",
+      "sha256": "7bba21ef60cbe0e9948203961ad45480ef9c4a3f73f7ddf06f9d98dbff0eea01",
+      "note": "Original retained locally; selected evidence fields are reproduced here without local filesystem prefixes."
+    }
+  ],
+  "cases": [
+    {
+      "id": "tower_gapped_stack",
+      "source_video": "tower_gapped_stack.mp4",
+      "original_video_relative_path": "attack_video_evidence_v3/gapped_stack_overview.mp4",
+      "record": "controlled_approach_v3/report.json",
+      "source_duration_s": 20,
+      "blocks": 12,
+      "layers": 6,
+      "initial_nominal_height_m": 0.09,
+      "robot_reference_height_m": 0.2722325087225377,
+      "source_trajectory_sha256": "ac6f6e6cfb431629b806fb09a9c9acac0a8e44ba53fbe350e0f4f6199397102d",
+      "truth_metrics": {
+        "contact": 1.0,
+        "max_force": 7.236064434051514,
+        "collapse": 0.0,
+        "balanced_collapse": 0.0,
+        "robot_caused_balanced_collapse": 0.0,
+        "contact_eligible": 1.0,
+        "robot_fall": 0.0,
+        "drop_fraction": 0.9207456707954407,
+        "floor_fraction": 0.800000011920929,
+        "remaining_height": 0.035069502890110016
+      },
+      "victory_sent": false,
+      "interpretation": "Contact scatters blocks while robot remains upright. Residual stacking fails the strict complete-collapse criteria; camera inspection remains inconclusive."
+    },
+    {
+      "id": "tower_open_portal",
+      "source_video": "tower_open_portal.mp4",
+      "original_video_relative_path": "attack_video_evidence_v3/open_portal_overview.mp4",
+      "record": "controlled_approach_v3/report.json",
+      "source_duration_s": 20,
+      "blocks": 6,
+      "layers": 2,
+      "initial_nominal_height_m": 0.18,
+      "robot_reference_height_m": 0.272232508687805,
+      "source_trajectory_sha256": "beb1f11eb00426009dfdd6d9534efaf11ba9f56fe94fbe2c39b77f0a6f0b93dd",
+      "truth_metrics": {
+        "contact": 1.0,
+        "max_force": 4.695904731750488,
+        "collapse": 0.0,
+        "balanced_collapse": 0.0,
+        "robot_caused_balanced_collapse": 0.0,
+        "contact_eligible": 1.0,
+        "robot_fall": 0.0,
+        "drop_fraction": 0.9647544622421265,
+        "floor_fraction": 0.75,
+        "remaining_height": 0.03503583371639252
+      },
+      "victory_sent": false,
+      "interpretation": "Contact scatters blocks while robot remains upright. Residual stacking fails the strict complete-collapse criteria; camera inspection remains inconclusive."
+    },
+    {
+      "id": "tower_36cm_scaled",
+      "source_video": "tower_36cm_scaled.mp4",
+      "original_video_relative_path": "tall_attack_video_v2/Microduck_25cm_tour_36cm_blocs_7p5x2p5x1p5cm_simulation.mp4",
+      "record": "tall_scaled_primitive_v1/report.json",
+      "source_duration_s": 28,
+      "blocks": 72,
+      "layers": 24,
+      "initial_nominal_height_m": 0.36,
+      "robot_reference_height_m": 0.25,
+      "robot_scale": 0.9183326457708352,
+      "morphology_note": "Separate resized simulation profile: fixed body masses and length-squared inertias; height depends on pose. Not physical calibration.",
+      "collider": "primitive BOX/BOX, NATIVECCD disabled; default-collider spontaneous collapse excluded",
+      "unforced_stability": {
+        "unforced_s": 2.0,
+        "potential_drop_fraction": 0.003314673900604248,
+        "max_horizontal_displacement_m": 0.0005461590480990708,
+        "max_vertical_displacement_m": 0.0006291568279266357,
+        "max_block_tilt_deg": 0.0,
+        "max_block_speed_m_s": 7.901892786321696e-06,
+        "robot_contact": 0.0,
+        "passed": true
+      },
+      "source_trajectory_sha256": "eb0719a6341d8b637ba226aa934e6592f40d85e8ea2216069d364509a5a03ee7",
+      "truth_metrics": {
+        "contact": 0.0,
+        "max_force": 0.0,
+        "collapse": 0.0,
+        "balanced_collapse": 0.0,
+        "robot_caused_balanced_collapse": 0.0,
+        "contact_eligible": 0.0,
+        "robot_fall": 0.0,
+        "drop_fraction": 0.003314673900604248,
+        "floor_fraction": 0.0,
+        "remaining_height": 0.3593747913837433
+      },
+      "victory_sent": false,
+      "overview_visual_change": "Distinct block tints only; geometry, recorded motion and original head-camera PNGs unchanged.",
+      "interpretation": "Robot remains upright but does not reach the tower. No contact, complete collapse or accepted victory."
+    }
+  ],
+  "previous_deliveries": [
+    {
+      "file": "Microduck_attaque_tours_dernier_essai_simule.mp4",
+      "sha256": "db97666394c8691baf77458cfaadfbe84737d31f434527f6e6c5f20294042dc1",
+      "contains": "gapped_stack then open_portal, 20 s each; overview clips above are the same recorded trials without the head-camera composite."
+    },
+    {
+      "file": "Microduck_25cm_tour_36cm_blocs_7p5x2p5x1p5cm_simulation.mp4",
+      "sha256": "35a06214df789dc287c2c5fef6a834ebe01ef0410b4281d551a0750e9faa37c3",
+      "contains": "Full 28 s tall_scaled_primitive_v1 replay; copied unchanged as tower_36cm_scaled.mp4."
+    }
+  ]
+}

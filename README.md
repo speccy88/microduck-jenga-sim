@@ -16,6 +16,7 @@
 
 <p align="center">
   <a href="#watch-the-strike">Demos</a> &nbsp; · &nbsp;
+  <a href="#more-blocks-and-taller-towers">More towers</a> &nbsp; · &nbsp;
   <a href="#how-it-works">How it works</a> &nbsp; · &nbsp;
   <a href="#results-with-their-limits">Results</a> &nbsp; · &nbsp;
   <a href="#reproduce-the-experiment">Reproduce</a> &nbsp; · &nbsp;
@@ -43,13 +44,46 @@ The tower is **preassembled**. MicroDuck strikes the upper of two free blocks; i
 
 <p align="center"><sub>Actual simulation recordings, cropped for readability. Full six-second trials at original speed; GIFs use 25 fps, MP4s use 50 fps.<br>MicroDuck models © Pollen Robotics · footage and derived images: <a href="media/README.md">CC BY-NC-SA 4.0 / attribution & provenance</a>.</sub></p>
 
+### More blocks and taller towers
+
+These earlier **whole-tower experiments** use scripted camera/ToF approach and push commands over frozen learned locomotion. They are separate from the two-block CEM strike above and the three-block selective PPO task. These are individual development trials, not success-rate estimates.
+
+#### Gapped stack · 12 blocks · 9 cm
+
+<p align="center">
+  <a href="media/tower_gapped_stack.mp4"><img src="media/tower_gapped_stack.gif" width="640" alt="Recorded whole-tower trial: MicroDuck approaches a twelve-block gapped stack and scatters blocks while remaining upright; some blocks remain stacked."></a><br>
+  <strong>Contact and partial knockdown.</strong> Robot upright; residual stack ≈ 3.5 cm.<br>
+  Strict complete-collapse check fails.<br>
+  <a href="media/tower_gapped_stack.mp4">Full 20 s MP4 ↗</a> · GIF: 2–12 s
+</p>
+
+#### Open portal · 6 blocks · 18 cm
+
+<p align="center">
+  <a href="media/tower_open_portal.mp4"><img src="media/tower_open_portal.gif" width="640" alt="Recorded whole-tower trial: MicroDuck approaches a six-block open portal and knocks its structure down to low debris; residual stacking fails the complete-collapse check."></a><br>
+  <strong>Contact and partial knockdown.</strong> Robot upright; residual stack ≈ 3.5 cm.<br>
+  Strict complete-collapse check fails.<br>
+  <a href="media/tower_open_portal.mp4">Full 20 s MP4 ↗</a> · GIF: 2–12 s
+</p>
+
+#### Tall tower · 72 blocks · 36 cm
+
+<p align="center">
+  <a href="media/tower_36cm_scaled.mp4"><img src="media/tower_36cm_scaled.gif" width="600" alt="Authentic rescaled simulation: a 25 cm reference-pose MicroDuck moves beside a 36 cm, seventy-two-block tower but never reaches it; the tower stays standing."></a><br>
+  <strong>No tower contact.</strong> Robot stays upright; tower stays standing.<br>
+  24 layers; separate resized simulation profile with a 25 cm reference-pose robot.<br>
+  <a href="media/tower_36cm_scaled.mp4">Full 28 s MP4 ↗</a> · GIF: 10–22 s
+</p>
+
+The GIFs are contiguous excerpts at recorded speed, replaying saved simulation states. The tall overview uses contrasting block tints for readability. All three use 7.5 × 2.5 × 1.5 cm blocks; the first two retain the original robot scale. No complete-collapse victory or physical robot test is established. [Source recordings, measured outcomes and scale/collider caveats](media/README.md#whole-tower-experiments) · [Evidence excerpt](media/tower-experiments.json).
+
 ## How it works
 
 | 01 / Balance | 02 / Strike | 03 / Measure |
 | :--- | :--- | :--- |
 | A **frozen pretrained VelStand policy** keeps the robot balanced. | **Cross-entropy method (CEM)** optimizes head-trajectory parameters and timing. | Evaluation checks first-contact speed, block separation, lower-block stability, forbidden contacts and robot falls. |
 
-The two-block controller starts at a controlled **14 cm placement** and uses **ideal simulated bearing**. It combines a parameterized head trajectory with the balance policy. Camera/ToF localization, physical robot tests and end-to-end PPO success have not been demonstrated.
+The two-block controller starts at a controlled **14 cm placement** and uses **ideal simulated bearing**. It combines a parameterized head trajectory with the balance policy and does not use camera/ToF localization. No physical robot tests or end-to-end PPO success are claimed for it.
 
 This repository also contains a **separate three-block PPO environment**. That experiment has no established successful policy; its diagnostic results are tracked separately below.
 
@@ -155,14 +189,16 @@ This replays the historical controller; it does not train an end-to-end PPO poli
 <details>
 <summary><strong>4 · Rebuild the README media without running a simulation</strong></summary>
 
-The GIFs are derived only from the two checked-in MP4s. With Python 3.10+, FFmpeg/ffprobe and Node.js/npx on `PATH`, run from the repository root:
+The GIFs are derived only from the checked-in MP4s. With Python 3.10+, FFmpeg/ffprobe and Node.js/npx on `PATH`, run from the repository root:
 
 ```sh
 python tools/build_readme_media.py
 python tools/build_readme_media.py --check
+python tools/build_tower_media.py
+python tools/build_tower_media.py --check
 ```
 
-The banner uses a pinned HyperFrames snapshot; the GIFs use FFmpeg's palette filter. Rebuild just the GIFs with `--skip-banner`. No simulation assets, model weights or GPU training are needed. See [media provenance and conversion details](media/README.md) and the [generated manifest](media/readme-media.json).
+The banner uses a pinned HyperFrames snapshot; the GIFs use FFmpeg's palette filter. Rebuild the CEM GIFs with `--skip-banner`; the separate tower builder needs only Python and FFmpeg/ffprobe. No simulation assets, model weights or GPU training are needed. See [media provenance and conversion details](media/README.md), the [CEM manifest](media/readme-media.json) and the [tower manifest](media/tower-media.json).
 
 </details>
 
